@@ -3,6 +3,7 @@ package com.jjboot.accounts;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,9 @@ public class AccountService {
     private AccountRepository repository;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     private ModelMapper modelMapper;
 
     public Account createAccount(AccountDto.Create dto) {
@@ -30,6 +34,8 @@ public class AccountService {
             throw new UserDuplicatedException(username);
         }
 
+        account.setPassword(passwordEncoder.encode(account.getPassword()));
+
         // password hashing
         Date now = new Date();
         account.setJoined(now);
@@ -40,7 +46,7 @@ public class AccountService {
 
     public Account updateAccount(Long id, AccountDto.Update updateDto) {
         Account account = getAccount(id);
-        account.setPassword(updateDto.getPassword());
+        account.setPassword(passwordEncoder.encode(account.getPassword()));
         account.setFullName(updateDto.getFullName());
         return repository.save(account);
     }

@@ -1,14 +1,12 @@
 package com.jjboot.accounts;
 
+import com.jjboot.commons.ErrorResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -26,10 +24,24 @@ public class AccountController {
                                         BindingResult result) {
        if(result.hasErrors()){
            // Need to add error response
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+           ErrorResponse errorResponse = new ErrorResponse();
+           errorResponse.setMessage("Wrong request");
+           errorResponse.setCode("bad.request");
+           // use the info of BindingResult
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+           // JSON Path
        }
 
        Account newAccount = service.createAccount(create);
        return new ResponseEntity<>(modelMapper.map(newAccount, AccountDto.Response.class), HttpStatus.CREATED);
    }
+
+    @ExceptionHandler(UserDuplicatedException.class)
+    public ResponseEntity handleUserDuplicationdException(UserDuplicatedException e) {
+        ErrorResponse errorResponse = new ErrorResponse();
+        errorResponse.setMessage("[" + e.getUsername() + "] + duplicated username ");
+        errorResponse.setCode("duplicated.username.exception");
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }

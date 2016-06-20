@@ -20,6 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.hamcrest.CoreMatchers.is;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -31,13 +32,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Transactional
 public class AccountControllerTest {
 
+    MockMvc mockMvc;
+
     @Autowired
     WebApplicationContext wac;
 
     @Autowired
     ObjectMapper objectMapper;
 
-    MockMvc mockMvc;
+    @Autowired
+    AccountService service;
 
     @Before
     public void setUp() {
@@ -88,9 +92,20 @@ public class AccountControllerTest {
         result.andExpect(jsonPath("$.code", is("bad.request")));
     }
 
-
     //twitch api, hateoas (Hypermedia as the Engine of Application State), URN
 
+    // HATEOAS
+    @Test
+    public void getAccounts() throws Exception{
+        AccountDto.Create createDto = new AccountDto.Create();
+        createDto.setUsername("jinjin");
+        createDto.setPassword("1234");
+        service.createAccount(createDto);
+
+        ResultActions result = mockMvc.perform(get("/accounts"));
+        result.andDo(print());
+        result.andExpect(status().isOk());
+    }
 
 
 

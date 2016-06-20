@@ -1,0 +1,18 @@
+                                                                                                                                        
+HHHHHHHHH     HHHHHHHHH                    lllllll lllllll                                 JJJJJJJJJJJIIIIIIIIIINNNNNNNN        NNNNNNNN
+H:::::::H     H:::::::H                    l:::::l l:::::l                                 J:::::::::JI::::::::IN:::::::N       N::::::N
+H:::::::H     H:::::::H                    l:::::l l:::::l                                 J:::::::::JI::::::::IN::::::::N      N::::::N
+HH::::::H     H::::::HH                    l:::::l l:::::l                                 JJ:::::::JJII::::::IIN:::::::::N     N::::::N
+  H:::::H     H:::::H      eeeeeeeeeeee     l::::l  l::::l    ooooooooooo                    J:::::J    I::::I  N::::::::::N    N::::::N
+  H:::::H     H:::::H    ee::::::::::::ee   l::::l  l::::l  oo:::::::::::oo                  J:::::J    I::::I  N:::::::::::N   N::::::N
+  H::::::HHHHH::::::H   e::::::eeeee:::::ee l::::l  l::::l o:::::::::::::::o                 J:::::J    I::::I  N:::::::N::::N  N::::::N
+  H:::::::::::::::::H  e::::::e     e:::::e l::::l  l::::l o:::::ooooo:::::o                 J:::::j    I::::I  N::::::N N::::N N::::::N
+  H:::::::::::::::::H  e:::::::eeeee::::::e l::::l  l::::l o::::o     o::::o                 J:::::J    I::::I  N::::::N  N::::N:::::::N
+  H::::::HHHHH::::::H  e:::::::::::::::::e  l::::l  l::::l o::::o     o::::o     JJJJJJJ     J:::::J    I::::I  N::::::N   N:::::::::::N
+  H:::::H     H:::::H  e::::::eeeeeeeeeee   l::::l  l::::l o::::o     o::::o     J:::::J     J:::::J    I::::I  N::::::N    N::::::::::N
+  H:::::H     H:::::H  e:::::::e            l::::l  l::::l o::::o     o::::o     J::::::J   J::::::J    I::::I  N::::::N     N:::::::::N
+HH::::::H     H::::::HHe::::::::e          l::::::ll::::::lo:::::ooooo:::::o     J:::::::JJJ:::::::J  II::::::IIN::::::N      N::::::::N
+H:::::::H     H:::::::H e::::::::eeeeeeee  l::::::ll::::::lo:::::::::::::::o      JJ:::::::::::::JJ   I::::::::IN::::::N       N:::::::N
+H:::::::H     H:::::::H  ee:::::::::::::e  l::::::ll::::::l oo:::::::::::oo         JJ:::::::::JJ     I::::::::IN::::::N        N::::::N
+HHHHHHHHH     HHHHHHHHH    eeeeeeeeeeeeee  llllllllllllllll   ooooooooooo             JJJJJJJJJ       IIIIIIIIIINNNNNNNN         NNNNNNN
+                                                                                                                                        

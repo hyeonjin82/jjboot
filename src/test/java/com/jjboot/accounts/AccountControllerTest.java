@@ -19,9 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.hamcrest.CoreMatchers.is;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -143,7 +141,19 @@ public class AccountControllerTest {
 
     }
 
+    @Test
+    public void deleteAccount() throws Exception {
+        ResultActions result = mockMvc.perform(delete("/accounts/1"));
+        result.andDo(print());
+        result.andExpect(status().isBadRequest());
 
+        AccountDto.Create createDto = accountCreateFixture();
+        Account account = service.createAccount(createDto);
+
+        result = mockMvc.perform(delete("/accounts/" + account.getId()));
+        result.andDo(print());
+        result.andExpect(status().isNoContent());
+    }
 
 
 

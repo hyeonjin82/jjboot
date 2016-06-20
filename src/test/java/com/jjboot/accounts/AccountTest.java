@@ -11,8 +11,8 @@ public class AccountTest {
     @Test
     public void getterSetter() {
         Account account = new Account();
-        account.setLoginId("jin");
+        account.setUsername("jin");
         account.setPassword("1234");
-        assertThat(account.getLoginId(), is("jin"));
+        assertThat(account.getUsername(), is("jin"));
     }
 }
